@@ -1,34 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useRef, useState } from "react";
+import "./App.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/a11y";
+import "swiper/css/effect-creative";
+import "swiper/css/effect-cards";
+import "swiper/css/effect-flip";
+
+import FProj from "./projects/FProj";
+import { clsx } from "clsx";
+import { useAtom } from "jotai";
+import { navScreenAtom } from "./global/states";
+import SProj from "./projects/SProj";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [navScreenIsOpen, setNavScreenIsOpen] = useAtom<boolean>(navScreenAtom);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <SProj />
+      <nav>
+        <span className="logo">Logo</span>
+        <span onClick={() => setNavScreenIsOpen(true)}>
+          {navScreenIsOpen ? "" : "Hamburger"}
+        </span>
+        <div
+          className={clsx(
+            { isOpen: navScreenIsOpen },
+            "nav-screen",
+            "center-items",
+            "center-text"
+          )}
+          onClick={() => setNavScreenIsOpen(false)}
+        >
+          <ul>
+            <li>First Project</li>
+            <li>First</li>
+            <li>First Item</li>
+            <li>First Data</li>
+            <li>Second</li>
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
 }
 
-export default App
+export default App;

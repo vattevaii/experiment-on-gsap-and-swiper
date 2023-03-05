@@ -13,13 +13,15 @@ import { clsx } from "clsx";
 import { useAtom } from "jotai";
 import { navScreenAtom } from "./global/states";
 import SProj from "./projects/SProj";
+import ServicesPage from "./projects/Services/index fail";
 
 function App() {
   const [navScreenIsOpen, setNavScreenIsOpen] = useAtom<boolean>(navScreenAtom);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <SProj />
+      {/* <SProj /> */}
+      <ServicesPage />
       <nav>
         <span className="logo">Logo</span>
         <span onClick={() => setNavScreenIsOpen(true)}>

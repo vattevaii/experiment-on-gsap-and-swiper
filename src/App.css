@@ -3,7 +3,7 @@
   height: 100vh;
 }
 .slide {
-  background-color: green;
+  /* background-color: green; */
   height: 100%;
 }
 nav {
@@ -29,6 +29,7 @@ nav.hide {
 }
 .center-items {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

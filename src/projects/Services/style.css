@@ -52,7 +52,7 @@
 } */
 
 /* failure below */
-.swiper-slide {
+/* .swiper-slide {
   height: min-content;
 }
 .slide-services-title {
@@ -83,4 +83,4 @@
 }
 .swiper-slide-visible .services-summary {
   transform: translate3d(0, 0, 0);
-}
+} */
